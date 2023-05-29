@@ -13,6 +13,11 @@
   "categories": [
     "Other"
   ],
+  "license": "MIT",
+  "author": {
+    "name": "Ivan Merccedes",
+    "url": "https://ivanmercedes.com"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ivanmercedes/html-wrapmagic"
