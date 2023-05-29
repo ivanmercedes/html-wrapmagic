@@ -6,18 +6,24 @@ export function activate(context: vscode.ExtensionContext) {
     () => {
       const editor = vscode.window.activeTextEditor;
       if (editor) {
-        const selection = editor.selection;
-        const selectedText = editor.document.getText(selection);
+        const selections = editor.selections;
+        const selectedTexts = selections.map(selection => editor.document.getText(selection));
 
         vscode.window
           .showInputBox({
             prompt: "Enter the HTML tag to wrap the text (e.g., 'div'):",
           })
-          .then((tagName) => {
-            if (tagName) {
-              const wrappedText = `<${tagName}>${selectedText}</${tagName}>`;
+          .then((tagNames) => {
+            if (tagNames) {
+              const tags = tagNames.split(",").map((tag) => tag.trim());
+              const wrappedTexts = selectedTexts.map((text, index) => {
+                const tagName = tags[index % tags.length];
+                return `<${tagName}>${text}</${tagName}>`;
+              });
               editor.edit((builder) => {
-                builder.replace(selection, wrappedText);
+                selections.forEach((selection, index) => {
+                  builder.replace(selection, wrappedTexts[index]);
+                });
               });
             }
           });
