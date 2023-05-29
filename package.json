@@ -2,7 +2,7 @@
   "name": "html-wrapmagic",
   "displayName": "HTML WrapMagic",
   "description": "Wrap Selected Text with HTML Tag.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "IvanMercedes",
   "engines": {
     "vscode": "^1.41.0"
