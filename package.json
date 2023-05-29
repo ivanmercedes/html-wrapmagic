@@ -1,0 +1,48 @@
+{
+  "name": "html-wrapmagic",
+  "displayName": "HTML WrapMagic",
+  "description": "Wrap Selected Text with HTML Tag.",
+  "version": "1.0.0",
+  "publisher": "Ivan Mercedes",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "scripts": {
+    "compile": "tsc"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.htmlWrapMagic",
+        "title": "HTML WrapMagic: Wrap Selected Text with HTML Tag"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.htmlWrapMagic",
+        "key": "ctrl+shift+z",
+        "mac": "cmd+shift+z",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.htmlWrapMagic",
+          "group": "modification",
+          "when": "editorLangId == html"
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "typescript": "^4.4.3",
+    "vscode": "^1.1.37"
+  }
+  
+}
